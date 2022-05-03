@@ -231,6 +231,7 @@ main #transaction table tbody td.income {
     position: fixed;
     top: 0;
     left: 0;
+   
 
     width: 100vw;
     height: 100vh;
@@ -253,6 +254,8 @@ main #transaction table tbody td.income {
     padding: 3.6rem;
 
     width: min(500px, 90%);
+    position: relative;
+    z-index: 9999;
 }
 
 /* =-=-=-=-=-=-=-=-= Form Modal =-=-=-=-=-=-=-=-= */
