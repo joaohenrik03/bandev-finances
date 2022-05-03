@@ -90,6 +90,69 @@
         </section>
     </main>
 
+    <div class="modal-overlay">
+        <div class="modal">
+            <div id="form">
+                <h2>
+                    Nova Transação
+                </h2>
+                <form action="#">
+                    <div class="input-group">
+                        <label 
+                            for="transaction-description" 
+                            class="sr-only">
+                            Descrição da Transição
+                        </label>
+                        <input 
+                            id="transaction-description" 
+                            name="transaction-description" 
+                            type="text" 
+                            placeholder="Descrição"
+                        >
+                    </div>
+
+                    <div class="input-group">
+                        <label 
+                            for="amount" 
+                            class="sr-only">
+                            Valor da Transição
+                        </label>
+                        <input 
+                            id="transaction-amount" 
+                            name="transaction-amount" 
+                            type="number" 
+                            placeholder="0,00" 
+                            step="0.01"
+                        >
+                        <small class="help">Use o sinal - (negativo) para despesas e , (vírgula) para casas decimais</small>
+                    </div>
+
+                    <div class="input-group">
+                        <label 
+                            for="transaction-date" 
+                            class="sr-only">
+                            Data da Transição
+                        </label>
+                        <input 
+                            id="transaction-date" 
+                            name="transaction-date" 
+                            type="date"
+                        >
+                    </div>
+
+                    <div class="input-group actions">
+                        <a href="#" class="button cancel">
+                            Cancelar
+                        </a>
+                        <button class="button save">
+                            Salvar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <p>&copy;Bandev Finances 2022. Todos os direitos reservados</p>
     </footer>

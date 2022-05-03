@@ -5,7 +5,7 @@
     --purple: #5F3DC4;
     --white: #FFFFFF;
     --titles: #06001a;
-    --texts: #384633;
+    --texts: #383347;
     --green: #49AA26;
     --red: #E92929;
     --background-color: #F0F2F5;
@@ -76,6 +76,40 @@ a:hover {
 .button.new {
     display: inline-block;
     margin-bottom: 1.2rem;
+}
+
+button {
+    width: 100%;
+    height: 50px;
+
+    border: none;
+    
+    color: white;
+    background-color: var(--green);
+    cursor: pointer;
+
+    border-radius: .4rem;
+}
+
+button:hover {
+    background-color: #55c32c;
+}
+
+.button.cancel {
+    color: var(--red);
+    opacity: .6;
+
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid var(--red);
+    border-radius: .4rem;
+}
+
+.button.cancel:hover {
+    opacity: 1;
 }
 
 /* =-=-=-=-=-=-=-=-= Header =-=-=-=-=-=-=-=-= */
@@ -189,6 +223,75 @@ main #transaction table tbody td.expense {
 
 main #transaction table tbody td.income {
     color: var(--green);
+}
+
+/* =-=-=-=-=-=-=-=-= Modal =-=-=-=-=-=-=-=-= */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+
+    background-color: rgba(0, 0, 0, 0.3);
+
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal {
+    background-color: var(--background-color);
+    padding: 3.6rem;
+
+    width: min(500px, 90%);
+}
+
+/* =-=-=-=-=-=-=-=-= Form Modal =-=-=-=-=-=-=-=-= */
+
+#form {
+   max-width: 500px;
+}
+
+#form h2 {
+    margin-top: 0;
+}
+
+#form form input {
+    border: none;
+    border-radius: .2rem;
+
+    padding: 1.2rem;
+
+    width: 100%;
+}
+
+#form form .input-group {
+    margin-top: 1.2rem;
+}
+
+#form form .input-group small {
+    color: var(--texts);
+    opacity: .4;
+}
+
+#form form .input-group.actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#form form .input-group.actions .button,
+#form form .input-group.actions button {
+    width: 48%;
 }
 
 /* =-=-=-=-=-=-=-=-= Footer =-=-=-=-=-=-=-=-= */
