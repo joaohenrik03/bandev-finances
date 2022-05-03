@@ -1,0 +1,157 @@
+/* =-=-=-=-=-=-=-=-= Global =-=-=-=-=-=-=-=-= */
+
+:root {
+    --purple-dark: #341985;
+    --purple: #5F3DC4;
+    --white: #FFFFFF;
+    --titles: #06001a;
+    --texts: #384633;
+    --green: #49AA26;
+    --red: #E92929;
+    --background-color: #F0F2F5;
+
+    font-size: 62.5%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6rem;
+    background-color: var(--background-color);
+}
+
+.container {
+    width: min(800px, 90%);
+    margin: auto;
+}
+
+/* =-=-=-=-=-=-=-=-=Titles =-=-=-=-=-=-=-=-= */
+
+h2 {
+    margin-top: 5rem;
+    margin-bottom: 1.28rem;
+    color: var(--titles);
+
+    font-weight: 400;
+}
+
+/* =-=-=-=-=-=-=-=-= Header =-=-=-=-=-=-=-=-= */
+
+header {
+    background-color: var(--purple-dark);
+    padding: 3.2rem 0 18.74rem;
+    text-align: center;
+}
+
+header #logo {
+    color: var(--white);
+    font-weight: 300;
+}
+
+/* =-=-=-=-=-=-=-=-= Balance =-=-=-=-=-=-=-=-= */
+
+main #balance {
+    margin-top: -12.8rem;
+}
+
+main #balance h2 {
+    color: var(--white);
+    margin-top: 0;
+}
+
+/* =-=-=-=-=-=-=-=-= Cards =-=-=-=-=-=-=-=-= */
+
+main #balance .card {
+    background-color: var(--white);
+    color: var(--titles);
+
+    padding: 2.4rem 3.2rem;
+    margin-bottom: 3.2rem;
+
+    border-radius: .4rem;
+}
+
+main #balance .card h3 {
+    font-weight: normal;
+}
+
+main #balance .card p {
+    font-size: 3.2rem;
+    line-height: 4.8rem;
+
+    margin-top: 1.6rem;
+}   
+
+main #balance .card.total {
+    background-color: var(--green);
+    color: var(--white);
+}
+
+/* =-=-=-=-=-=-=-=-= Transactions =-=-=-=-=-=-=-=-= */
+
+main #transaction #data-table {
+    width: 100%;
+    border-spacing: 0 .8rem;
+    color: var(--purple-dark);
+}
+
+main #transaction table thead tr th:first-child,
+main #transaction table tbody tr td:first-child {
+    border-radius: .4rem 0 0 .4rem;
+}
+
+main #transaction table thead tr th:last-child,
+main #transaction table tbody tr td:last-child {
+    border-radius: 0 .4rem .4rem 0;
+}
+
+main #transaction table th {
+    text-align: left;
+    font-weight: normal;
+    background-color: var(--white);
+
+    padding: 1.6rem 3.2rem;
+}
+
+main #transaction table td {
+    background-color: var(--white); 
+    padding: 1.6rem 3.2rem;
+}
+
+main #transaction table tbody tr {
+    opacity: 0.7;
+}
+
+main #transaction table tr:hover {
+    opacity: 1;
+}
+
+main #transaction table tbody td.description {
+    color: var(--titles);
+}
+
+main #transaction table tbody td.expense {
+    color: var(--red);
+}
+
+main #transaction table tbody td.income {
+    color: var(--green);
+}
+
+/* =-=-=-=-=-=-=-=-= Footer =-=-=-=-=-=-=-=-= */
+
+footer {
+    text-align: center;
+    font-weight: 500;
+    font-style: italic;
+    font-size: 1.4rem;
+    color: var(--purple);
+
+    padding: 6.4rem 0 3.2rem;
+}
+
