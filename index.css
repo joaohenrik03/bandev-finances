@@ -30,7 +30,29 @@ body {
     margin: auto;
 }
 
-/* =-=-=-=-=-=-=-=-=Titles =-=-=-=-=-=-=-=-= */
+.score {
+    color: var(--purple);
+    font-weight: 400;
+}
+
+.dollar-sign {
+    color: var(--green);
+    font-weight: 400;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    border-width: 0;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+}
+
+/* =-=-=-=-=-=-=-=-= Titles =-=-=-=-=-=-=-=-= */
 
 h2 {
     margin-top: 5rem;
@@ -38,6 +60,22 @@ h2 {
     color: var(--titles);
 
     font-weight: 400;
+}
+
+/* =-=-=-=-=-=-=-=-= Links && Buttons =-=-=-=-=-=-=-=-= */
+
+a {
+    text-decoration: none;
+    color: var(--purple);
+}
+
+a:hover {
+    color: hsl(255, 52%, 65%);
+}
+
+.button.new {
+    display: inline-block;
+    margin-bottom: 1.2rem;
 }
 
 /* =-=-=-=-=-=-=-=-= Header =-=-=-=-=-=-=-=-= */
@@ -78,6 +116,10 @@ main #balance .card {
 
 main #balance .card h3 {
     font-weight: normal;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 main #balance .card p {
@@ -93,6 +135,12 @@ main #balance .card.total {
 }
 
 /* =-=-=-=-=-=-=-=-= Transactions =-=-=-=-=-=-=-=-= */
+
+main #transaction {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+}
 
 main #transaction #data-table {
     width: 100%;
@@ -155,3 +203,17 @@ footer {
     padding: 6.4rem 0 3.2rem;
 }
 
+/* =-=-=-=-=-=-=-=-= Responsive =-=-=-=-=-=-=-=-= */
+
+@media (min-width: 800px) {
+    html {
+        font-size: 56%;
+    }
+
+    main #balance {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 100%;
+        gap: 2rem;
+    }
+}
