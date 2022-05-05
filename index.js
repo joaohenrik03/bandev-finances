@@ -38,9 +38,10 @@ const transactions = [
 ];
 
 const Transaction = {
+    all: transactions,
     incomes() {
         let income = 0;
-        transactions.forEach((transaction) => {
+        Transaction.all.forEach((transaction) => {
             if (transaction.amount > 0) {
                 income += transaction.amount;
             }
@@ -50,7 +51,7 @@ const Transaction = {
     },
     expenses() {
         let expense = 0;
-        transactions.forEach((transaction) => {
+        Transaction.all.forEach((transaction) => {
             if (transaction.amount < 0) {
                 expense += transaction.amount;
             }
