@@ -39,6 +39,11 @@ const transactions = [
 
 const Transaction = {
     all: transactions,
+    add(transaction){
+        Transaction.all.push(transaction)
+
+        App.reload()
+    },
     incomes() {
         let income = 0;
         Transaction.all.forEach((transaction) => {
@@ -92,6 +97,9 @@ const DOM = {
         document.querySelector('#incomesEl').innerHTML = Utils.formatCurrency(Transaction.incomes());
         document.querySelector('#expensesEl').innerHTML = Utils.formatCurrency(Transaction.expenses());
         document.querySelector('#totalEl').innerHTML = Utils.formatCurrency(Transaction.total());
+    },
+    clearTransactions() {
+        DOM.transactionsContainer.innerHTML = '';
     }
 };
 
@@ -110,8 +118,31 @@ const Utils = {
     }
 };
 
-transactions.forEach((transaction) => {
-    DOM.addTransaction(transaction);
-});
+const App = {
+    start() {
+        Transaction.all.forEach((transaction) => {
+            DOM.addTransaction(transaction);
+        });
 
-DOM.updateBalance();
+        DOM.updateBalance(); 
+    },
+    reload() {
+        DOM.clearTransactions();
+
+        App.start()
+    }
+}
+
+App.start();
+
+Transaction.add(
+    {
+        id: 23,
+        description: 'to aqui',
+        amount: 200,
+        date: '25/01/2022'
+    }
+);  
+
+
+
