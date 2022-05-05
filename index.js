@@ -12,25 +12,21 @@ const Modal = {
 
 const transactions = [
     {
-        id: 1,
         description: 'Desenvolvimento de site',
         amount: 200000,
         date: '23/01/2022'
     },
     {
-        id: 2,
         description: 'Luz',
         amount: -50000,
         date: '15/01/2022'
     },
     {
-        id: 3,
         description: 'Internet',
         amount: -10000,
         date: '03/01/2022'
     },
     {
-        id: 4,
         description: 'App',
         amount: 200000,
         date: '01/01/2022'
@@ -43,6 +39,11 @@ const Transaction = {
         Transaction.all.push(transaction)
 
         App.reload()
+    },
+    remove(index) {
+        Transaction.all.splice(index, 1);
+
+        App.reload();
     },
     incomes() {
         let income = 0;
@@ -134,15 +135,4 @@ const App = {
 }
 
 App.start();
-
-Transaction.add(
-    {
-        id: 23,
-        description: 'to aqui',
-        amount: 200,
-        date: '25/01/2022'
-    }
-);  
-
-
 
