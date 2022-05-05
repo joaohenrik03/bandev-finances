@@ -3,12 +3,12 @@
 
 const Modal = {
     open() {
-        document.querySelector('.modal-overlay').classList.add('show')  
+        document.querySelector('.modal-overlay').classList.add('show');
     },
     close() {
-        document.querySelector('.modal-overlay').classList.remove('show')
+        document.querySelector('.modal-overlay').classList.remove('show');
     }
-}
+};
 
 const transactions = [
     {
@@ -28,8 +28,14 @@ const transactions = [
         description: 'Internet',
         amount: -10000,
         date: '03/01/2022'
+    },
+    {
+        id: 4,
+        description: 'App',
+        amount: 200000,
+        date: '01/01/2022'
     }
-]
+];
 
 const Transaction = {
     incomes() {
@@ -41,19 +47,30 @@ const Transaction = {
     total() {
         
     }
-}
+};
 
 const DOM = {
-    innerHTMLTransaction() {
+    transactionsContainer: document.querySelector('#data-table tbody'),
+    addTransaction(transaction, index) {
+        const tr = document.createElement('tr');
+        tr.innerHTML = DOM.innerHTMLTransaction(transaction);
+
+        DOM.transactionsContainer.appendChild(tr);
+    },
+    innerHTMLTransaction(transaction) {
         const html = `
-            <tr>
-                <td class="description">Desenvolvimento de site</td>
-                <td class="income">R$ 12.000,00</td>
-                <td class="date">13/04/2020</td>
-                <td>
-                    <img src="./assets/minus.svg" alt="Remover transação">
-                </td>
-            </tr>
-        `
+            <td class="description">${transaction.description}</td>
+            <td class="expense">${transaction.amount}</td>
+            <td class="date">${transaction.date}</td>
+            <td>
+                <img src="./assets/minus.svg" alt="Remover transação">
+            </td>
+        `;
+
+        return html;
     }
-}
+};
+
+transactions.forEach((transaction) => {
+    DOM.addTransaction(transaction);
+});
