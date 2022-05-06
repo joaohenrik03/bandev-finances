@@ -10,31 +10,29 @@ const Modal = {
     }
 };
 
-const transactions = [
-    {
-        description: 'Desenvolvimento de site',
-        amount: 200000,
-        date: '23/01/2022'
-    },
-    {
-        description: 'Luz',
-        amount: -50000,
-        date: '15/01/2022'
-    },
-    {
-        description: 'Internet',
-        amount: -10000,
-        date: '03/01/2022'
-    },
-    {
-        description: 'App',
-        amount: 200000,
-        date: '01/01/2022'
-    }
-];
-
 const Transaction = {
-    all: transactions,
+    all: [
+        {
+            description: 'Desenvolvimento de site',
+            amount: 200000,
+            date: '23/01/2022'
+        },
+        {
+            description: 'Luz',
+            amount: -50000,
+            date: '15/01/2022'
+        },
+        {
+            description: 'Internet',
+            amount: -10000,
+            date: '03/01/2022'
+        },
+        {
+            description: 'App',
+            amount: 200000,
+            date: '01/01/2022'
+        }
+    ],
     add(transaction){
         Transaction.all.push(transaction)
 
@@ -116,8 +114,82 @@ const Utils = {
         });
 
         return signal + value;
+    },
+    formatAmount(value) {
+        value = Number(value) * 100;
+        
+        return value;
+    },
+    formatDate(date) {
+        const splittedDate = date.split('-');
+        
+        return `${splittedDate[2]}/${splittedDate[1]}/${splittedDate[0]}`;       
     }
+        
 };
+
+const Form = {
+    description: document.querySelector('#transaction-description'),
+    amount: document.querySelector('#transaction-amount'),
+    date: document.querySelector('#transaction-date'),
+
+    getValues() {
+        return {
+            description: Form.description.value, 
+            amount: Form.amount.value, 
+            date: Form.date.value
+        };
+    },
+    validateFields() {
+        const { description, amount, date} = Form.getValues();
+
+        if (description.trim() === "" || amount.trim() === "" || date.trim() === "") {
+            throw new Error('[ERRO] Por favor, preencha os campos novamente, sem espaços em branco!')
+        }
+    },
+    formatData() {
+        let { description, amount, date} = Form.getValues();
+
+        amount = Utils.formatAmount(amount);
+        date = Utils.formatDate(date);
+        
+        return {
+            description,
+            amount,
+            date
+        };
+    },
+    saveTransaction(transaction) {
+        Transaction.add(transaction);
+    },
+    clearFields() {
+        Form.description.value = '';
+        Form.amount.value = '';
+        Form.date.value = '';
+    },
+    submit(event) {
+        event.preventDefault();
+        try {
+            Form.validateFields();
+
+            const transaction = Form.formatData();
+
+            Form.saveTransaction(transaction);
+
+            Form.clearFields();
+
+            Modal.close();
+        } catch (error) {
+            alert(error.message);
+        }   
+
+
+        event.preventDefault();
+
+        Form.validateFields();
+        Form.formatData();
+    }
+}
 
 const App = {
     start() {
@@ -132,7 +204,7 @@ const App = {
 
         App.start()
     }
-}
+};
 
 App.start();
 

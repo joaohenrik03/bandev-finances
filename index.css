@@ -238,7 +238,7 @@ main #transaction table tbody td.income {
     display: grid;
     place-items: center;
 
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.5);
 
     opacity: 0;
     visibility: hidden;
