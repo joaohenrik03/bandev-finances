@@ -28,5 +28,6 @@ Bibliotecas
 
 O Bandev Finances é um aplicativo web para lhe ajudar a controlar suas finanças (transições, entradas, saídas, total...). Utilizando o Local Storage do seu nagevador.
 
+## 🔖 Layout
 
- 
+Você pode visualizar o layout do projeto através [desse link](https://www.figma.com/file/RziIm9osHLEH7txbmZ0e2k/dev.finance%24-Maratona-Discover-(Copy)?node-id=0%3A1). É necessário ter conta no [Figma](https://figma.com) para acessá-lo.
