@@ -7,29 +7,17 @@ const Modal = {
     }
 };
 
+const Storage = {
+    get() {
+        return JSON.parse(localStorage.getItem("bandev-finances:transactions")) || []
+    },
+    set(transactions) {
+        localStorage.setItem("bandev-finances:transactions", JSON.stringify(transactions));
+    }
+};
+
 const Transaction = {
-    all: [
-        {
-            description: 'Desenvolvimento de site',
-            amount: 200000,
-            date: '23/01/2022'
-        },
-        {
-            description: 'Luz',
-            amount: -50000,
-            date: '15/01/2022'
-        },
-        {
-            description: 'Internet',
-            amount: -10000,
-            date: '03/01/2022'
-        },
-        {
-            description: 'App',
-            amount: 200000,
-            date: '01/01/2022'
-        }
-    ],
+    all: Storage.get(),
     add(transaction){
         Transaction.all.push(transaction)
 
@@ -196,6 +184,8 @@ const App = {
         });
 
         DOM.updateBalance(); 
+
+        Storage.set(Transaction.all);
     },
     reload() {
         DOM.clearTransactions();
