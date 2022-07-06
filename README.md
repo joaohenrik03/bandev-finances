@@ -22,7 +22,7 @@
 
 ## :rocket: Projeto
 
-O Bandev Finances é um aplicativo web para lhe ajudar a controlar suas finanças (transições, entradas, saídas, total...). Utilizando o Local Storage do seu nagevador.
+O Bandev Finances é um aplicativo web para lhe ajudar a controlar suas finanças (transações, entradas, saídas, total...). Utilizando o Local Storage do seu nagevador.
 
 <hr>
 
